@@ -27,6 +27,7 @@ class SearchViewModelTest {
 
     @Mock
     lateinit var searchRepositoryImp: SearchRepositoryImp
+
     private val testDispatcher = StandardTestDispatcher()
 
     @Before
@@ -35,7 +36,6 @@ class SearchViewModelTest {
         Dispatchers.setMain(testDispatcher)
         viewModel=SearchViewModel(searchRepositoryImp)
     }
-
 
     @After
     fun tearDown() {

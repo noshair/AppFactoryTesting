@@ -40,7 +40,7 @@ class SearchFragmentTest {
         Thread.sleep(4000)
         onView(withId(R.id.recyclerList))
             .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
- /*       onView(withId(R.id.title)).check(matches(withText(containsString("Title : Celestial dancer (Devata)"))))
+ /*       onView(withId(R.id.title)).check(matches(withText(containsString("Title : Celestial dancer ()"))))
         onView(withId(R.id.department)).check(matches(withText(containsString("Department : Asian Art"))))*/
     }//we can also write other tests
 }

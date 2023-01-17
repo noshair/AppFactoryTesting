@@ -13,15 +13,15 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchViewModel @Inject constructor(private val searchRepositoryImp: SearchRepositoryImp) :
-    ViewModel() {
+class SearchViewModel @Inject constructor
+    (private val searchRepositoryImp: SearchRepositoryImp) : ViewModel() {
     private val searchMutableList =
         MutableStateFlow<Resource<SearchResponse>>(Resource.OnNothing())
 
     val searchList: StateFlow<Resource<SearchResponse>> get() = searchMutableList
 
 
-     fun getSearch(searchItem:String) {
+    fun getSearch(searchItem: String) {
         viewModelScope.launch {
             searchMutableList.value = Resource.OnLoading()
             searchRepositoryImp.getSearchData(searchItem)
