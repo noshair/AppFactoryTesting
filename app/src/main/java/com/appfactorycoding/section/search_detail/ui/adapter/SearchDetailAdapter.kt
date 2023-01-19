@@ -16,7 +16,7 @@ class SearchDetailAdapter(val context: Context) :
     private lateinit var recyclerViewList: List<String>
 
 
-    inner class SearchViewHolder(var searchDetailItemBinding: SearchDetailItemBinding) :
+    inner class SearchViewHolder(private var searchDetailItemBinding: SearchDetailItemBinding) :
         RecyclerView.ViewHolder(searchDetailItemBinding.root) {
         fun bind(item: String) {
             Glide.with(context)
