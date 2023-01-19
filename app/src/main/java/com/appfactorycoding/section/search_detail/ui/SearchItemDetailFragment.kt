@@ -93,8 +93,8 @@ class SearchDetailFragment : Fragment() {
 
                 }
         }
-
     }
+
     private fun initRecyclerview() {
         binding.recyclerDetailList.apply {
             layoutManager = LinearLayoutManager(context)

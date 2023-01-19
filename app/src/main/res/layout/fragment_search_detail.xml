@@ -46,7 +46,6 @@
 
             <TextView
                 android:id="@+id/objectName"
-                _constraintBottom_toTopOf="@+id/recyclerDetailList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -61,7 +60,6 @@
 
             <TextView
                 android:id="@+id/department"
-                _constraintBottom_toTopOf="@+id/primaryImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -76,7 +74,6 @@
 
             <TextView
                 android:id="@+id/title"
-                _constraintBottom_toTopOf="@+id/primaryImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
