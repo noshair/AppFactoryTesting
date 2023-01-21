@@ -9,16 +9,18 @@ import com.appfactorycoding.service.model.search_detail.SearchDetailResponse
 import com.appfactorycoding.service.model.search_detail.Tag
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.setMain
-import org.junit.Assert
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
+import javax.inject.Inject
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class SearchDetailRepositoryImTest {
@@ -26,8 +28,12 @@ class SearchDetailRepositoryImTest {
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Mock
+    lateinit var searchDetailRepository: SearchDetailRepositoryImp
+
+    @Mock
     lateinit var apiService: ApiService
     private val testDispatcher = StandardTestDispatcher()
+
     @Before
     fun setUp() {
         Dispatchers.setMain(testDispatcher)
@@ -35,7 +41,7 @@ class SearchDetailRepositoryImTest {
     }
 
     @Test
-    suspend fun getSelectedGalleryItem() {
+    fun getSelectedGalleryItem() {
         runBlocking {
             Mockito.`when`(
                 apiService.getGalleryItem(38153)
@@ -114,6 +120,7 @@ class SearchDetailRepositoryImTest {
                 )
             )
 
+
             val sut = SearchDetailRepositoryImp(
                 apiService
             )
@@ -121,11 +128,14 @@ class SearchDetailRepositoryImTest {
             val result = sut.getSelectedGalleryItem(
                 38153
             )
-            result.test {
-                val output=awaitItem()
-                Assert.assertEquals("241", output.GalleryNumber)
 
+
+            result.test {
+                val output = awaitItem()
+                assertEquals("241", output.GalleryNumber)
+                awaitComplete()
             }
         }
+
     }
 }

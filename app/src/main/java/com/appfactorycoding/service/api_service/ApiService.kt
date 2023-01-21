@@ -2,6 +2,7 @@ package com.appfactorycoding.service.api_service
 
 import com.appfactorycoding.service.model.search.SearchResponse
 import com.appfactorycoding.service.model.search_detail.SearchDetailResponse
+import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
